@@ -1,0 +1,68 @@
+/**app.wxss**/
+.container-fluid {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  box-sizing: border-box;
+}
+
+.container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding:0rpx 20rpx; 
+  box-sizing: border-box;
+} 
+.mgr10{
+  margin-right: 10rpx;
+}
+.mgr20{
+  margin-right: 20rpx;
+}
+.mgt30 {
+  margin-top: 30rpx;
+}
+.mgt20 {
+  margin-top: 20rpx;
+}
+.mgt10 {
+  margin-top: 10rpx;
+}
+.fs10 {
+  font-size: 25rpx;
+}
+.fs20 {
+  font-size: 34rpx;
+}
+.fs50 {
+  font-size: 50rpx;
+}
+.colorGray {
+  color: #5a5959;
+}
+.gray-676767{
+  color: #676767;
+}
+.gray-d0d0d0{
+  color: #d0d0d0;
+}
+.fleft {
+  float: left;
+}
+.fright {
+  float: right;
+}
+.overflow {
+  overflow: hidden;
+}
+.nav-list {
+  display: flex;
+  flex-direction: row;
+}
+.txcenter {
+  text-align: center;
+}

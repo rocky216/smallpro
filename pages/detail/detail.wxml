@@ -1,0 +1,37 @@
+<view class='container-fluid'>
+  <view class="bg-wrap">
+    <image mode="scaleToFill" src="{{detailData.template.bg_img}}" style="width:100%;height:100%;"></image>
+    <view class="text-area">
+      <view>
+        <text class='fs50 text-area-title'>{{detailData.template.catalog.catalog_name}}</text>
+        <view class='text-area-line'></view>
+      </view>
+      <view class="mgt20">
+        <text class="text-area-content fs20 gray-676767">{{detailData.benisons_txt}}</text>
+      </view>
+      <view class='mgt30 gray-676767'>
+        <image src="{{detailData.user.avatar_url}}" class='text-area-head fright'></image>
+        <text class='fs20 fright'>—{{detailData.user.nick_name}}</text>
+      </view>
+    </view>
+  </view> 
+
+  <!--弹框  -->
+  <view class='modal_mask' style="display:{{visible?'block':'none'}}" >
+    <view class='modal_wrap'>
+      <view class='txcenter mgt20'><text>你可以加密专属祝福哦</text></view>
+      <view class='txcenter'>
+        <input class='passwordInput' type="number" bindinput="getPaassword" maxlength="11" value="{{password}}"  placeholder="请输入密码"></input>
+        <text class='gray-676767 fs10'>11位密码，建议设置为对方的手机号码</text>
+      </view>
+      <view class='button_share mgt20 '>
+        <view class='button_share_view'>
+          <button class='button_share_1'  data-id='0' catchtap="openPage"  plain style='border-right:1px solid #eee;'>打开</button>
+        </view>
+      </view>
+    </view>
+  
+  </view>
+
+
+</view>

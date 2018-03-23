@@ -1,0 +1,41 @@
+<!--detail.wxml-->
+
+<view class="container-fluid">
+  
+<!-- <scroll-view scroll-x="true" bindscrolltoupper="upper" bindscrolltolower="lower" bindscroll="scroll" scroll-into-view="{{toView}}" scroll-left="{{scrollTop}}">
+  <view class="scroll-x">
+    <view wx:for-items="{{scrolls}}" wx:key="name"> 
+      <view id="{{item.tag}}" class="{{item.tag}}">{{item.name}}</view>
+    </view>
+  </view>
+</scroll-view> -->
+
+<scroll-view scroll-x="true" scroll-left="0">
+  <view class="nav-list">
+    <view  wx:for="{{navList}}" wx:key="{{item.id}}" data-id='{{item.id}}' bindtap="bindNavClick"  >
+      <view class="nav-item">{{item.catalog_name}}</view>
+    </view>
+  </view>
+</scroll-view>
+
+<!-- <scroll-view class="mgt20" scroll-x="true" scroll-left="0">
+  <view class="nav-list"> 
+    <view wx:for="{{smallIamges}}" wx:key="{{item}}" >
+      <view class="follow-item">
+        <image class="follow-item-image" src="/images/follow_small_{{item}}.png"></image>
+      </view>
+    </view>
+  </view>
+</scroll-view> -->
+
+<scroll-view class='mgt20' scroll-x="true" scroll-left="0" >
+  <view class='nav-list'>
+    <view wx:for="{{cardList}}" wx:key="{{item}}" >
+      <view class='mgr20' data-item='{{item}}' bindtap="toDetail">
+        <image mode="widthFix" class='card-item-image' src='{{item.template.bg_img}}' ></image>
+      </view>
+    </view>
+  </view>
+  
+</scroll-view>
+</view>

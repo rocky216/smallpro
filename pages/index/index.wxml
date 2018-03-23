@@ -1,0 +1,81 @@
+<!--index.wxml-->
+<view class="container-fluid">
+
+      <scroll-view class="navListPos" scroll-x="true" scroll-left="0">
+        <view class="nav-list">
+          <view  
+            wx:for="{{navList}}" 
+            bindtap="bindNavClick" 
+            id="{{item.id}}" 
+            class="{{isSelect == item.id ?'nav-type-active':''}}" 
+            wx:key="{{item.id}}">
+            <view  class="nav-item">{{item.catalog_name}}</view>
+          </view>
+        </view>
+      </scroll-view>
+      
+     
+        <view style="margin-top:90rpx;">
+          <scroll-view scroll-y="true"  style="height: 1000px; " bindscrolltoupper="dropRefresh" bindscrolltolower="pullLoading" scroll-into-view="red" lower-threshold="10" scroll-top="10"  > 
+            <view  class="list-item" wx:for="{{followList}}" wx:key="{{item.id}}" >
+              <navigator url="/pages/detail/detail?benison_id={{item.id}}&template_id={{item.template.catalog_id}}">
+                <image mode="widthFix" data-item="{{item}}" binderror="errorImage" lazy-load class="list-item-image" src="{{item.template.bg_imgsumb}}"></image>
+                <view class="list-item-mask">
+                  <view class="list-item-mask-title" >
+                    <image class="list-item-mask-icon" src="{{item.template.catalog.catalog_icon}}" ></image>
+                    <text>{{item.template.catalog.catalog_name}}</text>
+                  </view>
+                  <view class="list-item-mask-text ellips mgt10" >
+                    <text class="fs20 colorGray">{{item.benisons_txt}}</text>
+                  </view>
+                  <view class='fright mgt10'>
+                    <view class='fleft mgr20'>
+                      <image class='icon_img fleft mgr10' src="{{item.user.avatar_url}}"></image>
+                      <text class='fs10 fleft mgt10'>{{item.user.nick_name}}</text>
+                    </view>
+                    <view class='fleft mgr20' data-item="{{item}}" catchtap='cliclFollow' >
+                      <image class='icon_img_follow fleft mgr10 mgt10' src="{{!item.isFollow?'/images/icon/icon_follow.png':'/images/icon/follow_active.png'}}" ></image>
+                      <text class='fs10 fleft mgt10'>{{item.liked_total}}</text>
+                    </view>
+                    <view class='fleft mgr20' data-item="{{item}}" catchtap="ClickShare" >
+                      <image class='icon_img_follow fleft mgr10 mgt10' src='/images/icon/share_small.png' ></image>
+                        <text class='fs10 fleft mgt10'>我也送</text>
+                    </view>
+                  </view>
+                </view>
+              </navigator>
+            </view>
+          </scroll-view>
+        </view>
+      
+         
+            <!-- <view wx:for="{{followList}}" wx:key="{{item.id}}" >
+              <view class="list-item">
+                <image class="list-item-image" src="{{item.bg_imgsumb}}"></image>
+                <view class="list-item-mask">
+                  <view class="list-item-mask-title" >
+                    <image class="list-item-mask-icon" src="{{item.template.catalog.catalog_icon}}" ></image>
+                    <text>{{item.template.catalog.catalog_name}}</text>
+                  </view>
+                  <view class="list-item-mask-text mgt10" >
+                    <text class="fs20 colorGray">{{item.benisons_txt}}</text>
+                  </view>
+                <view>
+              </view>
+            </view> -->
+        
+      
+
+</view>
+  <!-- <view class="list-item">
+    <image class="list-item-image" src="/images/love_02.png"></image>
+    <view class="list-item-mask">
+      <view class="list-item-mask-title" >
+        <image class="list-item-mask-icon" src="/images/icon/icon_2.png" ></image>
+        <text>闺蜜</text>
+      </view>
+      <view class="list-item-mask-text mgt10" >
+        <text class="fs20 colorGray">愿你强大到无需宠无需疼，却又幸运到有人宠有人疼一起走，一起笑，一起癫狂，</text>
+      </view>
+    </view>
+  </view> -->

@@ -1,0 +1,79 @@
+page {
+  height: 100%;
+  overflow:hidden; 
+  position:fixed; 
+}
+
+.bg-wrap {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+.text-area {
+  position: absolute;
+  z-index: 10;
+  bottom: 100rpx;
+  text-align: center;
+  width: 500rpx;
+  left: 50%;
+  margin-left: -220rpx;
+}
+.textcenter {
+  text-align: center;
+}
+.text-area-title {
+  font-style: 900
+}
+.text-area-head {
+  width: 70rpx;
+  height: 70rpx;
+  border-radius: 50%;
+  margin: -8rpx 0 0 10rpx;
+}
+.text-area-line {
+  width: 70rpx;
+  height: 5rpx;
+  background: #000;
+  margin: 10rpx auto 0;
+}
+
+/* 弹框 */
+
+.modal_mask {
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 11;
+}
+.modal_wrap {
+  position: absolute;
+  width: 500rpx;
+  margin-left: -250rpx;
+  height: 300rpx;
+  background: #fff;
+  top: 30%;
+  left: 50%;
+  border-radius: 10rpx;
+  padding: 20rpx;
+}
+.passwordInput {
+  font-size: 30rpx;
+  width: 300rpx;
+  margin: 30rpx auto 10rpx;
+  text-align: center;
+}
+.button_share {
+  width: 100%;
+  display: flex;
+}
+.button_share_view{
+  flex : 1;
+}
+ button.button_share_1 , button.button_share_2 {
+  border: none;
+  background: none;
+  border-radius: none;
+} 

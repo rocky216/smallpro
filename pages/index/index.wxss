@@ -1,0 +1,82 @@
+/**index.wxss**/
+.nav-wrap {
+  width: 100%;
+  height: 50rpx;
+  /* overflow: hidden; */
+}
+.nav-box {
+  width: 100%;
+}
+.nav-type {
+   display: inline-block;
+   width: 180rpx;
+   text-align: center;
+   padding-bottom: 10rpx;
+}
+.nav-type-active {
+  border-bottom: 4rpx solid #ff85b5;
+}
+.list-item {
+  width: 710rpx;
+  overflow: hidden;
+  border-radius: 10rpx;
+  margin-bottom: 20rpx;
+  border: 1px solid #eee;
+  position: relative;
+  box-sizing: border-box;
+  height: 497rpx;
+}
+.list-item-image {
+  width: 710rpx;
+}
+.list-item-mask {
+  width: 100%;
+  height: 50%;
+  background-color: rgba(255, 255, 255, 0.5);
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  padding: 20rpx;
+  box-sizing: border-box;
+}
+.list-item-mask-title {
+  height: 50rpx;
+}
+.list-item-mask-icon {
+  width: 50rpx;
+  height:50rpx; 
+  float: left;
+}
+.list-item-mask-text {
+  margin-left: 50rpx;
+}
+.nav-item {
+  width: 150rpx;
+  text-align: center;
+  padding-bottom: 20rpx;
+}
+.navListPos {
+  position: fixed;
+  top:0;
+  left: 0;
+  width: 100%;
+  height: 30px;
+  z-index: 10;
+  background-color: #fff;
+}
+.ellips{
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+}
+.icon_img {
+  width: 50rpx;
+  height: 50rpx;
+  border-radius: 50%;
+}
+.icon_img_follow {
+  width: 40rpx;
+  height: 40rpx;
+  margin-top:5rpx;
+}
