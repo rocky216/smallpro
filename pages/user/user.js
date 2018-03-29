@@ -7,56 +7,55 @@ Page({
    */
   data: {
     userData: {},
-    userDataList: []
+    userDataList: [],
+    numArr:[],
+    blessList:[],
+    userInfo: wx.getStorageSync("userInfo")
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    
+    this.getBlessNum()
+    this.getBlessList(1)
   },
-  getUserData: function(){
+  getBlessNum: function(event){
     var _this = this
-    const userInfo = app.globalData.userInfo
+    const { userInfo } = this.data
     const options = {
-      url: "/userinfo",
-      data: {
+      url: '/userinfo/benison/count',
+      data:{
         user_id: userInfo.id,
-        openid: userInfo.openid,
-        is_created: 1,
+        openid: userInfo.openid
       }
     }
     util.fetch(options, function(res){
-      var arr = []
-      for (var i=0;i<res.data.length;i++){
-        res.data[i]["created_at"] = res.data[i]["created_at"].substring(0,10)
-        arr.push(res.data[i])
-      }
-      _this.setData({ userData: res, userDataList: arr})
-    },true)
+      _this.setData({ numArr: res})
+    })
+    
   },
-  getUserInfo(){
-    setTimeout(function(){
-      if (!app.globalData.userInfo) {
-        wx.openSetting({
-          success: function (data) {
-            console.log(data, 999)
-            if (data.authSetting["scope.userInfo"] == true) {
-              app.goLogin(function (res) {
-                console.log(res)
-              })
-            } else {
-              wx.switchTab({
-                url: '/pages/index/index'
-              })
-            }
-          }
-        })
-      }
-    },500)
+  getUserInfo: function(event){
+    console.log(event)
+    var id = event.currentTarget.dataset.id
+    this.getBlessList(id)
   },
-
+  getBlessList: function(isCreated){
+    var _this = this
+    const { userInfo } = this.data
+    const options = {
+      url: '/userinfo',
+      data: {
+        user_id: userInfo.id,
+        openid: userInfo.openid,
+        is_created: isCreated
+      }
+    }
+    util.fetch(options, function(res){
+      console.log(res)
+      _this.setData({ blessList: res})
+    })
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
@@ -68,14 +67,6 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    this.getUserInfo()
-    this.getUserData()
-    if (!app.globalData.userInfo) {
-      
-      // wx.switchTab({
-      //   url: '/pages/index/index'
-      // })
-    }
   },
 
   /**

@@ -53,7 +53,7 @@
 .nav-item {
   width: 150rpx;
   text-align: center;
-  padding-bottom: 20rpx;
+  padding-bottom: 5rpx;
 }
 .navListPos {
   position: fixed;
@@ -79,4 +79,9 @@
   width: 40rpx;
   height: 40rpx;
   margin-top:5rpx;
+}
+.fixBless {
+  position:  absolute;
+  bottom: 10rpx;
+  right: 10rpx;
 }

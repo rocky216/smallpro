@@ -38,11 +38,14 @@
 .nav-list {
   display: flex;
   flex-direction: row;
-  padding: 0 20rpx;
 }
 .nav-item {
   width: 150rpx;
   text-align: center;
+  padding-bottom: 5rpx;
+}
+.nav-type-active {
+  border-bottom: 4rpx solid #ff85b5;
 }
 .follow-item-image {
   width: 140rpx;
@@ -52,6 +55,18 @@
   padding: 10rpx;
 }
 .card-item-image {
-  width: 500rpx; 
+  width: 555rpx; 
+  height: 994rpx;
   border-radius: 10rpx;
+  border:1rpx solid #eee;
+  box-shadow:0rpx 0rpx 10rpx #eee;
+}
+.navListPos {
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height:30px;
+  z-index:10;
+  background-color:#fff;
 }

@@ -6,7 +6,12 @@ App({
     userInfo: {}
   },
   onLaunch: function () {
-    //this.login()
+    var userInfo = wx.getStorageSync('userInfo')
+    if (userInfo){
+      wx.reLaunch({
+        url: '/pages/index/index'
+      })
+    }
   },
 
   //用户登录获取用户信息
@@ -44,6 +49,7 @@ App({
             }
             util.fetch(options, function (res) {
               if (res) {
+                console.log(_this)
                 _this.globalData.userInfo = res
                 cb ? cb(res) : null;
               }
@@ -58,8 +64,6 @@ App({
     })
   },
   globalData: {
-    userInfo: null,
-    //baseUrl: "http://192.168.1.113:6554/api"
-    baseUrl: 'https://smallcode.chenqingpu.cn/api'
+    userInfo: null
   }
 })

@@ -1,5 +1,6 @@
 const app = getApp()
 const baseUrl = 'https://smallcode.chenqingpu.cn/api'
+//const baseUrl = 'http://192.168.1.113:6554/api'
 
 const formatTime = date => {
   const year = date.getFullYear()
@@ -39,7 +40,8 @@ function fetch(opt,next,type=false) {  //ajax请求
   wx.showLoading({
     title: "加载中",
   })
-  if (!cache_data || type){
+  // if (!cache_data || type){
+  if(true){
     wx.request({
       url: baseUrl+settings.url,
       data: settings.data,
@@ -55,13 +57,14 @@ function fetch(opt,next,type=false) {  //ajax请求
           wx.setStorageSync(cache_key, data.res)
         } else {
           wx.showToast({
-            title: data.msg,
+            title: "请求失败",
             duration: 1500
           })
         }
 
       },
       fail: function (res) {
+        console.log(res)
         wx.showToast({
           title: "网路错误",
           icon: "none",

@@ -1,0 +1,8 @@
+<view class='txcenter'>
+  <view style='margin-top:100rpx;'>
+    <text>为了能正常访问，请授权登陆</text>
+  </view>
+  <view style='margin-top:50rpx; padding:20rpx;'>
+    <button type='primary' bindgetuserinfo="getUserInfo" open-type="getUserInfo">用户授权</button>
+  </view>
+</view>

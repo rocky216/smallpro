@@ -1,8 +1,8 @@
 <view class="container-fluid">
 
   <view class='bless_wrap'>
-    <image mode='widthFix' class='bless_bg' src="{{detailInfo.template.bg_img}}"></image>
-    <view class='bless' style="top:607rpx; text-align:center;">
+    <image class='bless_bg' src="{{detailInfo.template.bg_img}}"></image>
+    <view class='bless' style="top:{{detailInfo.template.top}}rpx; text-align:{{detailInfo.template.position}};">
       <view>
         <text>爱情</text>
         <span></span>
@@ -10,7 +10,7 @@
       <view class='mgt20'>
         <textarea class='bless_text ray-d0d0d0' 
           value="{{detailInfo.benisons_txt}}"
-          placeholder="请填写祝福语!"
+          placeholder="请在这里留下你的祝福..."
           maxlength="50"
           focus="true"
           auto-focus
@@ -23,7 +23,9 @@
       </view>
     </view>
   </view>
-  <button  class='send_bless'  bindtap='sendBless' >送祝福</button>
+  <view>
+    <button  class='send_bless'  bindtap='sendBless' >送祝福</button>
+  </view>
 
   <!--弹框  -->
   <view class='modal_mask' style="display:{{visible?'block':'none'}}" >
@@ -35,10 +37,10 @@
       </view>
       <view class='button_share mgt20 '>
         <view class='button_share_view'>
-          <button class='button_share_1'  data-id='0' open-type="share"  plain style='border-right:1px solid #eee;'>无密分享</button>
+          <button class='button_share_1'  data-id='0' open-type="share"  catchtap='shareHandle'  plain style='border-right:1px solid #eee;'>无密分享</button>
         </view>
         <view class='button_share_view'>
-             <!-- <button class='button_share_2' open-type="share" data-id='1' catchtap='enShareHandle' >加密分享</button>    -->
+             <!-- <button class='button_share_2' open-type="share" data-id='1' >加密分享</button>    -->
              <button class='button_share_2' plain data-id='1' open-type="{{password.length==11?'share':''}}"  catchtap='enShareHandle' >加密分享</button>  
         </view>
       </view>

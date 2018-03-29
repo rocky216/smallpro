@@ -1,22 +1,20 @@
-page {
+/* page {
   height: 100%;
   overflow:hidden; 
   position:fixed; 
-}
+} */
 
 .bg-wrap {
-  width: 100%;
-  height: 100%;
   position: relative;
+  height: 1334rpx;
 }
 .text-area {
   position: absolute;
   z-index: 10;
   bottom: 100rpx;
   text-align: center;
-  width: 500rpx;
-  left: 50%;
-  margin-left: -220rpx;
+  width: 600rpx;
+  left: 75rpx;
 }
 .textcenter {
   text-align: center;
@@ -77,3 +75,14 @@ page {
   background: none;
   border-radius: none;
 } 
+.fs29{
+  font-size: 29rpx;
+  line-height: 20rpx;
+}
+.pg-detail-img{
+  width:750rpx;
+  height: 1334rpx;
+  position: absolute;
+  top:0;
+  left:0;
+}

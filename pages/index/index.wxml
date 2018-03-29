@@ -15,8 +15,9 @@
       </scroll-view>
       
      
-        <view style="margin-top:90rpx;">
+        <view style="margin-top:70rpx;"  >
           <scroll-view scroll-y="true"  style="height: 1000px; " bindscrolltoupper="dropRefresh" bindscrolltolower="pullLoading" scroll-into-view="red" lower-threshold="10" scroll-top="10"  > 
+          {{followList.length==0?'请创建模板~~':''}}
             <view  class="list-item" wx:for="{{followList}}" wx:key="{{item.id}}" >
               <navigator url="/pages/detail/detail?benison_id={{item.id}}&template_id={{item.template.catalog_id}}">
                 <image mode="widthFix" data-item="{{item}}" binderror="errorImage" lazy-load class="list-item-image" src="{{item.template.bg_imgsumb}}"></image>
@@ -28,13 +29,13 @@
                   <view class="list-item-mask-text ellips mgt10" >
                     <text class="fs20 colorGray">{{item.benisons_txt}}</text>
                   </view>
-                  <view class='fright mgt10'>
+                  <view class='fright mgt10 fixBless'>
                     <view class='fleft mgr20'>
                       <image class='icon_img fleft mgr10' src="{{item.user.avatar_url}}"></image>
                       <text class='fs10 fleft mgt10'>{{item.user.nick_name}}</text>
                     </view>
                     <view class='fleft mgr20' data-item="{{item}}" catchtap='cliclFollow' >
-                      <image class='icon_img_follow fleft mgr10 mgt10' src="{{!item.isFollow?'/images/icon/icon_follow.png':'/images/icon/follow_active.png'}}" ></image>
+                      <image class='icon_img_follow fleft mgr10 mgt10' src="{{!item.is_liked_bension?'/images/icon/icon_follow.png':'/images/icon/follow_active.png'}}" ></image>
                       <text class='fs10 fleft mgt10'>{{item.liked_total}}</text>
                     </view>
                     <view class='fleft mgr20' data-item="{{item}}" catchtap="ClickShare" >

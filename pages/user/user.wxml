@@ -4,46 +4,48 @@
       <image src="/images/love_01.png"></image>
     </view>
     <view class='user-screnn-head'>
-      <image class='user-screnn-headImg' src="/images/love_02.png" ></image>
-      <text class='user-screnn-headtext'>走猫步的鱼</text> 
+      <image class='user-screnn-headImg' src="{{userInfo.avatar_url}}" ></image>
+      <text class='user-screnn-headtext'>{{userInfo.nick_name}}</text> 
     </view>
   </view>
 
   <view class='user-follow'>
-    <view class='user-follow-list' bindtap="getUserInfo">
-      <text class='fs50'>228</text>
-      <text class='colorGray'>收到的祝福</text>
-    </view>
-    <view class='user-follow-list'>
-      <text class='fs50'>189</text>
+    <view class='user-follow-list' data-id='1' bindtap="getUserInfo" >
+      <text class='fs50'>{{numArr[0]["total"]}}</text>
       <text class='colorGray'>送出的祝福</text>
+    </view>
+    <view class='user-follow-list' data-id='0' bindtap="getUserInfo">
+      <text class='fs50'>{{numArr[1]["total"]}}</text>
+      <text class='colorGray'>收到的祝福</text>
     </view>
   </view>
 
 
-  <view class='user-foller-list'>
-    <view class='overflow'>
-      <image class='top left' src='/images/icon/icon_1.png' style='width:80rpx;height:80rpx;'></image>
-      <text class='mgt10 fleft'>爱情</text>
-    </view>
-      
-    <view wx:for="{{userDataList}}" wx:key="{{item.id}}" class='user-foller-item'>
-        <image mode='aspectFill' class='user-foller-item-image' src="{{item.template.bg_imgsumb}}"></image> 
-        <view>
-          <text class='fs20 gray-676767'>{{item.created_at}}</text>
-        </view>
-        <view>
-          <view class='fleft'>
-            <image class="fleft user-foller-item-head" src='/images/love_02.png'></image>
-            <text class='fs10'>走猫步的鱼</text>
+  <view wx:for="{{blessList}}"  wx:key="{{item.id}}" class='user-foller-list'>
+    
+    <view style='display: {{item.benisons.length==0?"none":"block"}}'>
+      <view class='overflow'>
+        <image class='top left' src='{{item.catalog_icon}}' style='width:80rpx;height:80rpx;'></image>
+        <text class='mgt10 fleft'>{{item.catalog_name}}</text>
+      </view>
+        
+      <view wx:for="{{item.benisons}}" wx:key="{{elem.id}}" wx:for-item="elem" class='user-foller-item'>
+          <image mode='aspectFill' class='user-foller-item-image' src="{{elem.template.bg_imgsumb}}"></image> 
+          <view>
+            <text class='fs20 gray-676767'>{{elem.created_at}}</text>
           </view>
-          <view class='fright'>
-            <image class='fleft user-foller-item-follow' src='/images/icon/follow_active.png'></image>
-            <text class='fleft'>{{item.liked_total}}</text>
-          </view>
-        </view>  
+          <view>
+            <view class='fleft'>
+              <image class="fleft user-foller-item-head" src='{{elem.user.avatar_url}}'></image>
+              <text class='fs10'>{{elem.user.nick_name}}</text>
+            </view>
+            <view class='fright'>
+              <image class='fleft user-foller-item-follow' src='/images/icon/follow_active.png'></image>
+              <text class='fleft'>{{elem.liked_total}}</text>
+            </view>
+          </view>  
+      </view>
     </view>
-
   </view>
 </view>
 

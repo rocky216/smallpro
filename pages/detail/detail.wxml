@@ -1,13 +1,13 @@
-<view class='container-fluid'>
+<view class='container-fluid' style='align-items:left;'>
   <view class="bg-wrap">
-    <image mode="scaleToFill" src="{{detailData.template.bg_img}}" style="width:100%;height:100%;"></image>
-    <view class="text-area">
+    <image class="pg-detail-img" src="{{detailData.template.bg_img}}"></image>
+    <view class="text-area" style="top:{{detailData.template.top}}rpx; text-align: {{detailData.template.position}}">
       <view>
         <text class='fs50 text-area-title'>{{detailData.template.catalog.catalog_name}}</text>
         <view class='text-area-line'></view>
       </view>
       <view class="mgt20">
-        <text class="text-area-content fs20 gray-676767">{{detailData.benisons_txt}}</text>
+        <text class="text-area-content fs29 gray-676767" style='line-height:20rpx;'>{{detailData.benisons_txt}}</text>
       </view>
       <view class='mgt30 gray-676767'>
         <image src="{{detailData.user.avatar_url}}" class='text-area-head fright'></image>

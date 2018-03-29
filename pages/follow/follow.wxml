@@ -10,9 +10,10 @@
   </view>
 </scroll-view> -->
 
-<scroll-view scroll-x="true" scroll-left="0">
+<scroll-view class='navListPos' scroll-x="true" scroll-left="0">
   <view class="nav-list">
-    <view  wx:for="{{navList}}" wx:key="{{item.id}}" data-id='{{item.id}}' bindtap="bindNavClick"  >
+    <view  wx:for="{{navList}}" wx:key="{{item.id}}" data-id='{{item.id}}' bindtap="bindNavClick" 
+    class="{{isSelect == item.id ?'nav-type-active':''}}"  >
       <view class="nav-item">{{item.catalog_name}}</view>
     </view>
   </view>
@@ -28,11 +29,11 @@
   </view>
 </scroll-view> -->
 
-<scroll-view class='mgt20' scroll-x="true" scroll-left="0" >
+<scroll-view class='mgt20' scroll-x="true" scroll-left="0" style='margin-top:70rpx;' >
   <view class='nav-list'>
     <view wx:for="{{cardList}}" wx:key="{{item}}" >
-      <view class='mgr20' data-item='{{item}}' bindtap="toDetail">
-        <image mode="widthFix" class='card-item-image' src='{{item.template.bg_img}}' ></image>
+      <view class='mgr20' data-item='{{item}}' bindtap="toDetail" style=''>
+        <image class='card-item-image' src='{{item.template.bg_bension_img}}' ></image>
       </view>
     </view>
   </view>

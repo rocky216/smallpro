@@ -3,6 +3,10 @@
 const app = getApp()
 const util = require('../../utils/util.js')
 
+var touchDot = 0;//触摸时的原点  
+var time = 0;// 时间记录，用于滑动时且时间小于1s则执行左右滑动  
+var interval = null;// 记录/清理时间记录
+
 Page({
   onShareAppMessage: function (res) {
     return {
@@ -30,7 +34,6 @@ Page({
   onLoad: function(){
     this.getNavList()
     this.getFollowList()
-    app.login()
   },
   
   getNavList: function(){
@@ -45,12 +48,14 @@ Page({
   //获取祝福列表
   getFollowList: function (page = 1, catalog_id=0,type=false){
     var _this = this;
+    var userInfo = wx.getStorageSync("userInfo")
     const options = {
       url: "/benison/all",
       data:{
         page: page,
         per_page: 5,
-        catalog_id: catalog_id
+        catalog_id: catalog_id,
+        user_id: userInfo ? userInfo.id:''
       }
     }
     util.fetch(options, function (data) {
@@ -75,21 +80,29 @@ Page({
   //点击关注
   cliclFollow: function(event){
     var _this = this
-    const user_id = app.globalData.userInfo ? app.globalData.userInfo.id:'';
+    const userInfo = wx.getStorageSync('userInfo') || ''
+    const user_id = userInfo ? userInfo.id:'';
     const {followList} = this.data;
     var index = util.ChangeArrayItem(followList, event.currentTarget.dataset.item.id)
     const options = {
-      url: '/benison/liked/2',
-      method: 'patch',
+      url: '/benison/liked/' + event.currentTarget.dataset.item.id,
+      method: 'put',
       data:{
-        liked_total_type: followList[index]["isFollow"] ?'decrement':'increment', //increment+ decrement-
+        liked_total_type: followList[index]["is_liked_bension"] ?'decrement':'increment', //increment+ decrement-
         user_id: user_id,
         template_id: event.currentTarget.dataset.item.template_id
       }
     }
     
     util.fetch(options, function(res){
-      followList[index]["isFollow"] = !followList[index]["isFollow"];
+      if (followList[index]["is_liked_bension"]){
+        followList[index]["liked_total"] = followList[index]["liked_total"] - 1
+        followList[index]["is_liked_bension"]=0
+      }else{
+        followList[index]["liked_total"] = followList[index]["liked_total"] + 1
+        followList[index]["is_liked_bension"] = 1
+      }
+      
       _this.setData({ followList })
     },true)
 
@@ -120,5 +133,25 @@ Page({
    */
   onReachBottom: function () {
     console.log(2)
+  },
+
+
+  touchStart: function(e){
+    touchDot = e.touches[0].pageX;
+    interval = setInterval(function () {
+      time++;
+    }, 100);  
+  },
+  touchMove: function(e){
+    var touchMove = e.touches[0].pageX;  
+    if (touchMove - touchDot <= -40 && time < 10){
+      wx.switchTab({
+        url: '/pages/follow/follow'
+      });   
+    }
+  },
+  touchEnd: function(){
+    clearInterval(interval); // 清除setInterval  
+    time = 0;  
   }
 })

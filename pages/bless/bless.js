@@ -16,14 +16,23 @@ Page({
     var _this = this;
     const { callbackInfo, password, isPwd} = this.data
     var psw = password.length === 11 ? password : '';
-    
     return {
-      title: "发送祝福",
-      path: '/pages/detail/detail?benison_id=' + callbackInfo.id + '&template_id=' + callbackInfo.template_id + '&password=' + psw +'',
+      title: "发送祝福", 
+      path: '/pages/detail/detail?benison_id=' + callbackInfo.id + '&template_id=' + callbackInfo.template_id + '&password=' + psw ,
       success: function(res){
         if (!res.shareTickets.length){
           _this.isDeleteTemplate()
         }
+        wx.navigateTo({
+          url: '/pages/detail/detail?benison_id=' + callbackInfo.id + '&template_id=' + callbackInfo.template_id
+        })
+      },
+      fail: function(event){
+        _this.isDeleteTemplate()
+        console.log(event, "fail")
+      },
+      complete: function(event){
+        console.log(event, "complete")
       }
     }
   },
@@ -34,31 +43,30 @@ Page({
       url: '/benison/' + callbackInfo.id,
       method: 'delete'
     }
-    util.fetch(options, function(res){})
+    util.fetch(options, function(res){},true)
   },
   saveBlessTemplate: function(opt){
     var _this = this;
     const { isPwd } = this.data
-
+    const userInfo = wx.getStorageSync('userInfo') || {}
     const options = {
       url: '/benison',
       method: 'post',
       data: {
         benisons_txt: opt.benisons_txt,
         template_id: opt.template_id,
-        user_id: app.globalData.userInfo.id,
+        user_id: userInfo.id,
         password: isPwd?this.data.password:''
       }
     }
     util.fetch(options, function(res){
       _this.setData({ callbackInfo: res })
-    })
+    },true)
   },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    console.log(util.getCurrentPageUrl(),999)
     this.getDetail(options)
     wx.showShareMenu({
       withShareTicket: true,
@@ -77,8 +85,9 @@ Page({
     }
 
     util.fetch(options, function(res){
-      
-      _this.setData({ detailInfo:res })
+      res["template"]["top"] = res["template"]["top"] * 589 / 750;
+      console.log(res, 8888)
+      _this.setData({ detailInfo: res })
     })
   },
   textareaChange(event){
