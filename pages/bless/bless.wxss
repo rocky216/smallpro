@@ -58,6 +58,7 @@ button.send_bless {
   width: 300rpx;
   margin: 30rpx auto 10rpx;
   text-align: center;
+  border-bottom: 1px solid #ff85b5;
 }
 .button_share {
   width: 100%;

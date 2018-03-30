@@ -2,10 +2,10 @@
   <view class="bg-wrap">
     <image class="pg-detail-img" src="{{detailData.template.bg_img}}"></image>
     <view class="text-area" style="top:{{detailData.template.top}}rpx; text-align: {{detailData.template.position}}">
-      <view>
+      <!-- <view>
         <text class='fs50 text-area-title'>{{detailData.template.catalog.catalog_name}}</text>
         <view class='text-area-line'></view>
-      </view>
+      </view> -->
       <view class="mgt20">
         <text class="text-area-content fs29 gray-676767" style='line-height:20rpx;'>{{detailData.benisons_txt}}</text>
       </view>

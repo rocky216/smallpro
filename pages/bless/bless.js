@@ -14,11 +14,12 @@ Page({
    */
   onShareAppMessage: function (res) {
     var _this = this;
-    const { callbackInfo, password, isPwd} = this.data
+    const { callbackInfo, password, isPwd, detailInfo} = this.data
     var psw = password.length === 11 ? password : '';
     return {
       title: "发送祝福", 
       path: '/pages/detail/detail?benison_id=' + callbackInfo.id + '&template_id=' + callbackInfo.template_id + '&password=' + psw ,
+      imageUrl: detailInfo.template.bg_img,
       success: function(res){
         wx.navigateTo({
           url: '/pages/detail/detail?benison_id=' + callbackInfo.id + '&template_id=' + callbackInfo.template_id
