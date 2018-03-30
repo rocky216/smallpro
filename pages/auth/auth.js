@@ -15,7 +15,11 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    
+    if (wx.getStorageSync("userInfo")){
+      wx.switchTab({
+        url: '/pages/index/index'
+      })
+    }
   },
   getUserInfo(){
     app.goLogin(function(res){

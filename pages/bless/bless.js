@@ -20,16 +20,15 @@ Page({
       title: "发送祝福", 
       path: '/pages/detail/detail?benison_id=' + callbackInfo.id + '&template_id=' + callbackInfo.template_id + '&password=' + psw ,
       success: function(res){
-        if (!res.shareTickets.length){
-          _this.isDeleteTemplate()
-        }
         wx.navigateTo({
           url: '/pages/detail/detail?benison_id=' + callbackInfo.id + '&template_id=' + callbackInfo.template_id
         })
+        if (!res.shareTickets.length){
+          _this.isDeleteTemplate()
+        }
       },
       fail: function(event){
         _this.isDeleteTemplate()
-        console.log(event, "fail")
       },
       complete: function(event){
         console.log(event, "complete")
@@ -68,12 +67,6 @@ Page({
    */
   onLoad: function (options) {
     this.getDetail(options)
-    wx.showShareMenu({
-      withShareTicket: true,
-      success: function (res) {
-        console.log(res)
-      }
-    })
   },
   getDetail: function(opt){
     var _this = this
@@ -119,6 +112,10 @@ Page({
       return
     }
     this.setData({ isPwd: event.currentTarget.dataset.id})
+  },
+  cancelSave: function(){
+    this.setData({ visible: false})
+    this.isDeleteTemplate()
   }
 
 })

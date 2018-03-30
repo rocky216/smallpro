@@ -29,9 +29,14 @@
 
   <!--弹框  -->
   <view class='modal_mask' style="display:{{visible?'block':'none'}}" >
+    <view class='closeview' bindtap='cancelSave'>
+      <image src='/images/icon/close.png'></image>
+    </view>
+    <view class='lockviews'>
+      <image class='lock' src='/images/icon/lock.png'></image>
+    </view>
     <view class='modal_wrap'>
-      <view class='txcenter mgt20'><text>你可以加密专属祝福哦</text></view>
-      <view class='txcenter'>
+      <view class='txcenter' style='margin-top:95rpx;'>
         <input class='passwordInput' type="number" bindinput="getPaassword" maxlength="11" value="{{password}}"  placeholder="请输入密码"></input>
         <text class='gray-676767 fs10'>11位密码，建议设置为对方的手机号码</text>
       </view>

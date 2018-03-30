@@ -71,3 +71,23 @@ button.send_bless {
   background: none;
   border-radius: none;
 } 
+.lockviews {
+  position: absolute;
+  top: 20%;
+  left:50%;
+  margin-left: -150rpx;
+  z-index: 2;
+}
+.lock {
+  width: 331rpx;
+  height: 227rpx;
+}
+.closeview {
+  position: absolute;
+  top:20%;
+  left: 82%;
+}
+.closeview image {
+  width: 38rpx;
+  height: 38rpx;
+}
