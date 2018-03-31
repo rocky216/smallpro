@@ -1,7 +1,7 @@
 <view class='container-fluid' style='align-items:left;'>
   <view class='user-screnn-box'>
     <view class='user-screnn'>
-      <image src="/images/love_01.png"></image>
+      <image mode='widthFix' src="/images/love_01.png"></image>
     </view>
     <view class='user-screnn-head'>
       <image class='user-screnn-headImg' src="{{userInfo.avatar_url}}" ></image>

@@ -19,7 +19,7 @@
          ></textarea>
       </view>
       <view class='fright'>
-        <text>——{{detailInfo.user.nick_name}}</text>
+        <text>——{{userInfo.nick_name}}</text>
       </view>
     </view>
   </view>

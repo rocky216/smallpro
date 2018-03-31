@@ -29,13 +29,15 @@ Page({
     page: 1,
     catalogId: 0,
     totalPage: 0,
-
   },
   onLoad: function(){
+    util.isLogin()
     this.getNavList()
     this.getFollowList()
   },
-  
+  onShow(){
+
+  },
   getNavList: function(){
     var _this = this;
     const options = {
@@ -49,6 +51,7 @@ Page({
   getFollowList: function (page = 1, catalog_id=0,type=false){
     var _this = this;
     var userInfo = wx.getStorageSync("userInfo")
+    this.setData({userInfo: userInfo})
     const options = {
       url: "/benison/all",
       data:{

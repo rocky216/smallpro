@@ -11,6 +11,7 @@ Page({
 
   },
   onLoad: function(){
+    util.isLogin()
     this.getNavList()
     this.getFollowList(1, 0)
   },

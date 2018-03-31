@@ -7,7 +7,8 @@ Page({
     visible: false,
     password: '',
     isPwd: '',
-    callbackInfo: {}
+    callbackInfo: {},
+    userInfo: wx.getStorageSync("userInfo")
   },
   /**
    * 页面的初始数据
@@ -67,6 +68,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    util.isLogin()
     this.getDetail(options)
   },
   getDetail: function(opt){

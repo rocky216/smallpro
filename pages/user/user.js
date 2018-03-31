@@ -17,12 +17,14 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    util.isLogin()
     this.getBlessNum()
     this.getBlessList(1)
   },
   getBlessNum: function(event){
     var _this = this
-    const { userInfo } = this.data
+    var userInfo = wx.getStorageSync("userInfo")
+    this.setData({userInfo: userInfo})    
     const options = {
       url: '/userinfo/benison/count',
       data:{
@@ -42,7 +44,10 @@ Page({
   },
   getBlessList: function(isCreated){
     var _this = this
-    const { userInfo } = this.data
+    var userInfo = wx.getStorageSync("userInfo")
+    this.setData({ userInfo: userInfo })   
+
+    console.log(this.data.userInfo)
     const options = {
       url: '/userinfo',
       data: {
@@ -67,6 +72,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
+    util.isLogin()
   },
 
   /**
