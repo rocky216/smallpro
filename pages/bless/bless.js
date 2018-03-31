@@ -25,7 +25,7 @@ Page({
         wx.navigateTo({
           url: '/pages/detail/detail?benison_id=' + callbackInfo.id + '&template_id=' + callbackInfo.template_id
         })
-        if (!res.shareTickets.length){
+        if (!res.shareTickets || !res.shareTickets.length==0){
           _this.isDeleteTemplate()
         }
       },

@@ -11,7 +11,7 @@
         <textarea class='bless_text ray-d0d0d0' 
           value="{{detailInfo.benisons_txt}}"
           placeholder="请在这里留下你的祝福..."
-          maxlength="50"
+          maxlength="150"
           focus="true"
           auto-focus
           rows="2"
