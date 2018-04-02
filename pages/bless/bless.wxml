@@ -3,10 +3,10 @@
   <view class='bless_wrap'>
     <image class='bless_bg' src="{{detailInfo.template.bg_img}}"></image>
     <view class='bless' style="top:{{detailInfo.template.top}}rpx; text-align:{{detailInfo.template.position}};">
-      <view>
+      <!-- <view>
         <text>爱情</text>
         <span></span>
-      </view>
+      </view> -->
       <view class='mgt20'>
         <textarea class='bless_text ray-d0d0d0' 
           value="{{detailInfo.benisons_txt}}"
@@ -14,12 +14,12 @@
           maxlength="50"
           focus="true"
           auto-focus
-          rows="2"
+          auto-height
           bindinput="textareaChange"
          ></textarea>
       </view>
       <view class='fright'>
-        <text>——{{detailInfo.user.nick_name}}</text>
+        <text>——CHI哩</text>
       </view>
     </view>
   </view>

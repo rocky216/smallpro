@@ -1,4 +1,4 @@
-<view class='container-fluid' style='align-items:left;'>
+<view class='container-fluid' style="align-items:left; display:{{visible?'none':'block'}}" >
   <view class="bg-wrap">
     <image class="pg-detail-img" src="{{detailData.template.bg_img}}"></image>
     <view class="text-area" style="top:{{detailData.template.top}}rpx; text-align: {{detailData.template.position}}">
@@ -18,6 +18,7 @@
 
   <!--弹框  -->
   <view class='modal_mask' style="display:{{visible?'block':'none'}}" >
+    
     <view class='modal_wrap'>
       <view class='txcenter mgt20'><text>你可以加密专属祝福哦</text></view>
       <view class='txcenter'>

@@ -86,3 +86,6 @@
   top:0;
   left:0;
 }
+.text-area-content {
+  font-size: 30rpx;
+}
