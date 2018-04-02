@@ -2,10 +2,15 @@
   width: 600rpx;
   margin:20rpx auto;
   position: relative;
+  min-height:1055rpx;
 }
 .bless_bg {
-  width: 589rpx;
+  width: 650rpx;
   height: 1055rpx;
+  position: absolute;
+  z-index: -1;
+  left: -25rpx;
+  top:0;
 }
 button.send_bless {
   background: #ff85b5;
@@ -21,14 +26,14 @@ button.send_bless {
   margin-top:20rpx;
 }
 .bless {
-  position: absolute;
+  /* position: absolute;
   top: 50rpx;
-  left: 50rpx;
-  width: 500rpx;
+  left: 0rpx; */
+  width: 600rpx;
 }
 .bless_text {
   font-size: 30rpx;
-  line-height: 30rpx;
+  line-height: 40rpx;
   width: 100%;
   height: 150rpx;
 }

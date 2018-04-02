@@ -2,7 +2,7 @@
 
   <view class='bless_wrap'>
     <image class='bless_bg' src="{{detailInfo.template.bg_img}}"></image>
-    <view class='bless' style="top:{{detailInfo.template.top}}rpx; text-align:{{detailInfo.template.position}};">
+    <view class='bless' style="margin-top:{{detailInfo.template.top+20}}rpx; text-align:{{detailInfo.template.position}};">
       <!-- <view>
         <text>爱情</text>
         <span></span>
@@ -11,7 +11,7 @@
         <textarea class='bless_text ray-d0d0d0' 
           value="{{detailInfo.benisons_txt}}"
           placeholder="请在这里留下你的祝福..."
-          maxlength="50"
+          maxlength="150"
           focus="true"
           auto-focus
           auto-height
@@ -38,7 +38,7 @@
     <view class='modal_wrap'>
       <view class='txcenter' style='margin-top:95rpx;'>
         <input class='passwordInput' type="number" bindinput="getPaassword" maxlength="11" value="{{password}}"  placeholder="请输入密码"></input>
-        <text class='gray-676767 fs10'>11位密码，建议设置为对方的手机号码</text>
+        <text class='gray-676767 fs10'>如：180 0000 0000</text>
       </view>
       <view class='button_share mgt20 '>
         <view class='button_share_view'>

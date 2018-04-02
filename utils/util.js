@@ -54,10 +54,10 @@ function fetch(opt,next,type=false) {  //ajax请求
         wx.hideLoading()
         if (data.status) {
           next(data.res)
-          wx.setStorageSync(cache_key, data.res)
+          // wx.setStorageSync(cache_key, data.res)
         } else {
           wx.showToast({
-            title: "请求失败",
+            title: data.msg || "请求失败",
             duration: 1500
           })
         }
@@ -83,6 +83,7 @@ function fetch(opt,next,type=false) {  //ajax请求
 }
 
 
+
 //更改数组中某一项的值
 
 function ChangeArrayItem(arr,str){
@@ -104,9 +105,19 @@ function getCurrentPageUrl() {
   return url
 }
 
+function isLogin(){
+  var userInfo = wx.getStorageSync("userInfo")
+  if (!userInfo || !userInfo.id){
+    wx.reLaunch({
+      url: "/pages/auth/auth"
+    })
+  }
+}
+
 module.exports = {
   formatTime: formatTime,
   fetch: fetch,
   ChangeArrayItem,
-  getCurrentPageUrl
+  getCurrentPageUrl,
+  isLogin
 }

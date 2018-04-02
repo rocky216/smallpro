@@ -30,11 +30,13 @@ Page({
     var _this = this;
     this.getDetailInfo(options, function(){
       if (_this.adjustKey(options, "password")) {
+        
         app.goLogin(function (res) {
           wx.setStorageSync('userInfo', res)
         })
         if (options.password && options.password.length == 11) {
           _this.setData({ visible: true })
+          console.log(_this.data.visible, 78788)
 
         }
         if (options.password == '') {
