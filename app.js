@@ -39,12 +39,14 @@ App({
         wx.getUserInfo({
           success: function (data) {
             var userInfo = data.userInfo;
-
+            console.log(data, 666)
             const options = {
               url: "/openid",
               data: {
                 code: code,
-                user_info: userInfo
+                user_info: userInfo,
+                iv: data.iv,
+                encryptedData: data.encryptedData
               }
             }
             util.fetch(options, function (res) {
