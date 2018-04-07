@@ -29,6 +29,7 @@ Page({
     page: 1,
     catalogId: 0,
     totalPage: 0,
+    timer: null
   },
   onLoad: function(){
     util.isLogin()
@@ -36,7 +37,7 @@ Page({
     this.getFollowList()
   },
   onShow(){
-
+    util.clearStorage()
   },
   getNavList: function(){
     var _this = this;

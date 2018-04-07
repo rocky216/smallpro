@@ -1,20 +1,21 @@
 {
-  "pages":[
+  "pages": [
     "pages/index/index",
     "pages/follow/follow",
     "pages/user/user",
     "pages/detail/detail",
     "pages/bless/bless",
     "pages/logs/logs",
-    "pages/auth/auth"
+    "pages/auth/auth",
+    "pages/canvas/canvas"
   ],
-  "window":{
-    "backgroundTextStyle":"light",
+  "window": {
+    "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
     "navigationBarTitleText": "一花一世界",
-    "navigationBarTextStyle":"black"
+    "navigationBarTextStyle": "black"
   },
-  "tabBar":{
+  "tabBar": {
     "color": "#6e6d6b",
     "selectedColor": "#ff8cbb",
     "borderStyle": "white",

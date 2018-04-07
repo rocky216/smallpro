@@ -51,7 +51,7 @@ button.send_bless {
   position: absolute;
   width: 500rpx;
   margin-left: -250rpx;
-  height: 300rpx;
+  height: 390rpx;
   background: #fff;
   top: 30%;
   left: 50%;
