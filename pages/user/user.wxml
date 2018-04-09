@@ -21,30 +21,37 @@
   </view>
 
 
-  <view wx:for="{{blessList}}"  wx:key="{{item.id}}" class='user-foller-list'>
+  <view wx:for="{{blessList}}"  wx:key="{{item.id}}" class='user-foller-list' style='width:725rpx; '>
     
     <view style='display: {{item.benisons.length==0?"none":"block"}}'>
-      <view class='overflow'>
-        <image class='top left' src='{{item.catalog_icon}}' style='width:80rpx;height:80rpx;'></image>
+      <view class='overflow' style="padding-left:25rpx;">
+        <image class='top fleft' src='{{item.catalog_icon}}' style='width:80rpx;height:80rpx;'></image>
         <text class='mgt10 fleft'>{{item.catalog_name}}</text>
       </view>
-        
-      <view wx:for="{{item.benisons}}" wx:key="{{elem.id}}" wx:for-item="elem" class='user-foller-item'>
-          <image mode='aspectFill' class='user-foller-item-image' src="{{elem.template.bg_imgsumb}}"></image> 
-          <view>
-            <text class='fs20 gray-676767'>{{elem.created_at}}</text>
+
+      <scroll-view scroll-x="true">
+        <view class='nav-list'>
+          <view wx:for="{{item.benisons}}" wx:key="{{elem.id}}" wx:for-item="elem">
+            <view  class='user-foller-item'>
+              <image mode='aspectFill' class='user-foller-item-image' src="{{elem.template.bg_imgsumb}}"></image> 
+              <view>
+                <text class='fs20 gray-676767'>{{elem.created_at}}</text>
+              </view>
+              <view>
+                <view class='fleft'>
+                  <image class="fleft user-foller-item-head" src='{{elem.user.avatar_url}}'></image>
+                  <text class='fs10'>{{elem.user.nick_name}}</text>
+                </view>
+                <view class='fright'>
+                  <image class='fleft user-foller-item-follow' src='/images/icon/follow_active.png'></image>
+                  <text class='fleft'>{{elem.liked_total}}</text>
+                </view>
+              </view>  
+            </view>
           </view>
-          <view>
-            <view class='fleft'>
-              <image class="fleft user-foller-item-head" src='{{elem.user.avatar_url}}'></image>
-              <text class='fs10'>{{elem.user.nick_name}}</text>
-            </view>
-            <view class='fright'>
-              <image class='fleft user-foller-item-follow' src='/images/icon/follow_active.png'></image>
-              <text class='fleft'>{{elem.liked_total}}</text>
-            </view>
-          </view>  
-      </view>
+        </view>
+      </scroll-view>  
+      
     </view>
   </view>
 </view>
