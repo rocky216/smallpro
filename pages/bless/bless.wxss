@@ -51,19 +51,56 @@ button.send_bless {
   position: absolute;
   width: 500rpx;
   margin-left: -250rpx;
-  height: 390rpx;
+  height: 410rpx;
   background: #fff;
   top: 30%;
   left: 50%;
   border-radius: 10rpx;
-  padding: 20rpx;
+  
+}
+.share-txt-tips-head{
+  font-size:16px;
 }
 .passwordInput {
   font-size: 30rpx;
   width: 300rpx;
-  margin: 30rpx auto 10rpx;
   text-align: center;
-  border-bottom: 1px solid #ff85b5;
+  border-bottom: 1px solid #a7a7a7;
+}
+.wrap-password{
+  margin:30rpx 10rpx 0 10rpx;
+}
+.wrap-flex-password{
+  width:100%;
+  display:flex;
+
+}
+.flex-password{
+  flex:1
+}
+.flex-password-copy{
+  border:1px solid #ff85b5;
+  border-radius:22px;
+  height:22px;
+  line-height:22px;
+  text-align:center;
+}
+.share-body{
+  padding: 20rpx;
+  border-bottom: 1px solid #eee;
+  
+}
+.share-footer {
+  height:90rpx;
+}
+.copy-password{
+  font-size:12px;
+  color:#ff85b5;
+  display:block;
+}
+.password-tips {
+  color:#ccc;
+  font-size:12px;
 }
 .button_share {
   width: 100%;
