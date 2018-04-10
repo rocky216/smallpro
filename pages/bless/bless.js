@@ -23,8 +23,17 @@ Page({
     var _this = this;
     const { callbackInfo, password, isPwd, detailInfo } = this.data;
     var psw = password.length === 11 ? password : "";
+    const userInfo = wx.getStorageSync('userInfo') || ''
+
+    var titles = ''
+    if (password && password.length==11){
+      titles = userInfo.nick_name + "跟您说悄悄话,解锁密码：" + password
+    }else{
+      titles = userInfo.nick_name + "跟您说悄悄话"
+    }
+
     return {
-      title: "发送祝福",
+      title: titles,
       path:
         "/pages/detail/detail?benison_id=" +
         callbackInfo.id +
@@ -89,6 +98,13 @@ Page({
    */
   onLoad: function(options) {
     this.getDetail(options);
+  },
+  onUnload:function(){
+    
+    if (this.data.callbackInfo.id){
+      this.isDeleteTemplate()
+    }
+    
   },
   getDetail: function(opt) {
     var _this = this;

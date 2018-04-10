@@ -18,6 +18,13 @@ Page({
    */
   onLoad: function (options) {
     util.isLogin()
+    
+  },
+  /**
+   * 生命周期函数--监听页面显示
+   */
+  onShow: function () {
+    util.isLogin()
     this.getBlessNum()
     this.getBlessList(1)
   },
@@ -68,12 +75,7 @@ Page({
     
   },
 
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-    util.isLogin()
-  },
+  
 
   /**
    * 生命周期函数--监听页面隐藏

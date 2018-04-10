@@ -2,7 +2,7 @@
   <view class="bg-wrap" style="display:{{visible?'none':'block'}}">
     <image class="pg-detail-img" src="{{detailData.template.bg_img}}"></image>
     <view class="text-area" style="top:{{detailData.template.top}}rpx; text-align: {{detailData.template.position}}">
-       <!-- <view>
+      <!-- <view>
         <text class='fs50 text-area-title'>{{detailData.template.catalog.catalog_name}}</text>
         <view class='text-area-line'></view>
       </view>  -->

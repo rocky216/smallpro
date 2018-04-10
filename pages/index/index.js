@@ -6,6 +6,7 @@ const util = require('../../utils/util.js')
 var touchDot = 0;//触摸时的原点  
 var time = 0;// 时间记录，用于滑动时且时间小于1s则执行左右滑动  
 var interval = null;// 记录/清理时间记录
+var timer = null
 
 Page({
   onShareAppMessage: function (res) {
@@ -29,7 +30,9 @@ Page({
     page: 1,
     catalogId: 0,
     totalPage: 0,
-    timer: null
+    timer: null,
+    bStop: true,
+    bStopPull: true
   },
   onLoad: function(){
     util.isLogin()
@@ -48,7 +51,7 @@ Page({
       _this.setData({ navList: _this.data.navList.concat(data) })
     })
   },
-  //获取祝福列表
+  //获取祝福列表 
   getFollowList: function (page = 1, catalog_id=0,type=false){
     var _this = this;
     var userInfo = wx.getStorageSync("userInfo")
@@ -73,13 +76,32 @@ Page({
   },
   //上拉加载
   pullLoading: function(e){
+    var _this = this
     if (this.data.page > this.data.totalPage) return;
-    this.setData({ page: this.data.page+1})
-    this.getFollowList(this.data.page, this.data.isSelect)
+    if (this.data.bStop) {
+      this.setData({ page: this.data.page + 1 })
+      this.getFollowList(this.data.page, this.data.isSelect)
+      _this.setData({ bStop: false})
+      clearTimeout(interval)
+      interval = setTimeout(function(){
+        _this.setData({ bStop: true })
+      },500)
+    }
+    
   },
   //下拉刷新
   dropRefresh: function(){
-    this.getFollowList(1, this.data.isSelect,true)
+    var _this = this
+    if (this.data.bStopPull){
+      this.getFollowList(1, this.data.isSelect, true)
+      this.setData({ bStopPull: false})
+      clearTimeout(timer)
+      timer = setTimeout(function () {
+        _this.setData({ bStopPull: true})
+      }, 500)
+    }
+    
+    
   },
   //点击关注
   cliclFollow: function(event){
@@ -129,6 +151,7 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
+    wx.showNavigationBarLoading()
     console.log(1)
   },
 
@@ -140,22 +163,22 @@ Page({
   },
 
 
-  touchStart: function(e){
-    touchDot = e.touches[0].pageX;
-    interval = setInterval(function () {
-      time++;
-    }, 100);  
-  },
-  touchMove: function(e){
-    var touchMove = e.touches[0].pageX;  
-    if (touchMove - touchDot <= -40 && time < 10){
-      wx.switchTab({
-        url: '/pages/follow/follow'
-      });   
-    }
-  },
-  touchEnd: function(){
-    clearInterval(interval); // 清除setInterval  
-    time = 0;  
-  }
+  // touchStart: function(e){
+  //   touchDot = e.touches[0].pageX;
+  //   interval = setInterval(function () {
+  //     time++;
+  //   }, 100);  
+  // },
+  // touchMove: function(e){
+  //   var touchMove = e.touches[0].pageX;  
+  //   if (touchMove - touchDot <= -40 && time < 10){
+  //     wx.switchTab({
+  //       url: '/pages/follow/follow'
+  //     });   
+  //   }
+  // },
+  // touchEnd: function(){
+  //   clearInterval(interval); // 清除setInterval  
+  //   time = 0;  
+  // }
 })
