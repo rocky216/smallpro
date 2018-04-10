@@ -6,6 +6,10 @@
   height: 400rpx;
   overflow: hidden;
 }
+.nav-list {
+  display: flex;
+  flex-direction: row;
+}
 .user-screnn image {
   width: 100%;
 }
@@ -43,13 +47,12 @@
   font-size: 50rpx;
 }
 .user-foller-list {
-  padding: 20rpx 0 20px 20px;
+  padding: 20rpx 0 20rpx 0rpx;
 }
 .user-foller-item {
   width: 330rpx;
-  float: left;
-  margin-right: 25rpx;
-  margin-bottom: 25rpx;
+  margin-left: 25rpx;
+  margin-bottom: 25rpx; 
 }
 .user-foller-item-image{
   width: 100%;
@@ -66,4 +69,12 @@
   width: 40rpx;
   height: 40rpx;
   margin: 10rpx 5rpx 0 0;
+}
+.textview {
+  width: 200rpx;
+  height: 100rpx;
+  background: #ccc;
+}
+.clear {
+  clear: both;
 }
