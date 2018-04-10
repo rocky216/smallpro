@@ -25,7 +25,7 @@ Page({
     var psw = password.length === 11 ? password : "";
     const userInfo = wx.getStorageSync('userInfo') || ''
 
-    const titles = ''
+    var titles = ''
     if (password && password.length==11){
       titles = userInfo.nick_name + "跟您说悄悄话,解锁密码：" + password
     }else{
@@ -98,6 +98,13 @@ Page({
    */
   onLoad: function(options) {
     this.getDetail(options);
+  },
+  onUnload:function(){
+    
+    if (this.data.callbackInfo.id){
+      this.isDeleteTemplate()
+    }
+    
   },
   getDetail: function(opt) {
     var _this = this;
