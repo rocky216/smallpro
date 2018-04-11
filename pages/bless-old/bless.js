@@ -23,13 +23,13 @@ Page({
     var _this = this;
     const { callbackInfo, password, isPwd, detailInfo } = this.data;
     var psw = password.length === 11 ? password : "";
-    const userInfo = wx.getStorageSync("userInfo") || "";
+    const userInfo = wx.getStorageSync('userInfo') || ''
 
-    var titles = "";
-    if (password && password.length == 11) {
-      titles = userInfo.nick_name + "跟您说悄悄话,解锁密码：" + password;
-    } else {
-      titles = userInfo.nick_name + "跟您说悄悄话";
+    var titles = ''
+    if (password && password.length==11){
+      titles = userInfo.nick_name + "跟您说悄悄话,解锁密码：" + password
+    }else{
+      titles = userInfo.nick_name + "跟您说悄悄话"
     }
 
     return {
@@ -99,10 +99,12 @@ Page({
   onLoad: function(options) {
     this.getDetail(options);
   },
-  onUnload: function() {
-    // if (this.data.callbackInfo.id) {
-    //   this.isDeleteTemplate();
-    // }
+  onUnload:function(){
+    
+    if (this.data.callbackInfo.id){
+      this.isDeleteTemplate()
+    }
+    
   },
   getDetail: function(opt) {
     var _this = this;
@@ -152,26 +154,5 @@ Page({
   cancelSave: function() {
     this.setData({ visible: false });
     this.isDeleteTemplate();
-  },
-  //复制密码
-  copyPassword: function() {
-    var _this = this;
-    wx.setClipboardData({
-      data: _this.data.password,
-      success: function(res) {
-        // _this.setData({copyTip:true}),
-        wx.showModal({
-          title: "提示",
-          content: "复制成功",
-          success: function(res) {
-            if (res.confirm) {
-              console.log("确定");
-            } else if (res.cancel) {
-              console.log("取消");
-            }
-          }
-        });
-      }
-    });
   }
 });

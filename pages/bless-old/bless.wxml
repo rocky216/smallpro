@@ -36,28 +36,22 @@
       <image class='lock' src='/images/icon/lock.png'></image>
     </view>
     <view class='modal_wrap'>
-      <view class='share-body'>
-        <view class='txcenter' style='margin-top:95rpx;'>
-          <text class='share-txt-tips-head'>你可以加密专属祝福哦</text>
-          <view class='wrap-password'>
-          <view class='wrap-flex-password'>
-          <view class="flex-password"><input class='passwordInput' type="number" bindinput="getPaassword" maxlength="11" value="{{password}}"  placeholder="请输入密码"></input></view>
-          <view class="flex-password flex-password-copy" bindtap="copyPassword"><text class='copy-password'>复制密码</text></view>
-          </view>
-
-          
-          </view>
-          <text class='password-tips'>11位密码，建议您设置为对方的手机号码</text>
-        </view>
+      <view class='txcenter' style='margin-top:95rpx;'>
+        <input class='passwordInput' type="number" bindinput="getPaassword" maxlength="11" value="{{password}}"  placeholder="请输入密码"></input>
+        <text class='gray-676767 fs10'>如：180 0000 0000</text>
       </view>
-      <view class='button_share share-footer'>
+      <view class='button_share_view' data-item='{{detailInfo}}' catchtap='shareImage' >
+           <button class='button_share_2' plain  >分享到朋友圈</button>  
+      </view>
+      <view class='button_share  '>
         <view class='button_share_view'>
-          <button class='button_share_1'  data-id='0' open-type="share"  catchtap='shareHandle'  plain style='height:90rpx;border-right:1px solid #eee;'>无密分享</button>
+          <button class='button_share_1'  data-id='0' open-type="share"  catchtap='shareHandle'  plain style='border-right:1px solid #eee;'>无密分享</button>
         </view>
         <view class='button_share_view'>
              <!-- <button class='button_share_2' open-type="share" data-id='1' >加密分享</button>    -->
              <button class='button_share_2' plain data-id='1' open-type="{{password.length==11?'share':''}}"  catchtap='enShareHandle' >加密分享</button>  
-        </view> 
+        </view>
+        
       </view>
     </view>
   

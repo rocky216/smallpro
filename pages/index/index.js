@@ -62,7 +62,8 @@ Page({
         page: page,
         per_page: 5,
         catalog_id: catalog_id,
-        user_id: userInfo ? userInfo.id:''
+        user_id: userInfo ? userInfo.id:'',
+        password: ""
       }
     }
     util.fetch(options, function (data) {
