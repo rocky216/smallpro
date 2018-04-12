@@ -44,7 +44,7 @@ Page({
       imageUrl: detailInfo.template.bg_img,
       success: function(res) {
         const options = {
-          url: "/benison/30",
+          url: "/benison/" + callbackInfo.id,
           method: 'put',
           data: {
             user_id: userInfo.id,
