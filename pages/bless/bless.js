@@ -43,6 +43,22 @@ Page({
         psw,
       imageUrl: detailInfo.template.bg_img,
       success: function(res) {
+        const options = {
+          url: "/benison/30",
+          method: 'put',
+          data: {
+            user_id: userInfo.id,
+            template_id: callbackInfo.template_id,
+            benisons_txt: callbackInfo.benisons_txt,
+            is_belong_template: callbackInfo.is_belong_template,
+            status: 1,
+            password: psw
+          }
+        }
+        util.fetch(options, function(res){
+
+        })
+
         wx.navigateTo({
           url:
             "/pages/detail/detail?benison_id=" +
