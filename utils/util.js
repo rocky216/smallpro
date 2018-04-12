@@ -1,5 +1,5 @@
 const app = getApp();
- const baseUrl = "https://smallcode.chenqingpu.cn/api";
+const baseUrl = "https://smallcode.chenqingpu.cn/api";
 //const baseUrl = "http://192.168.1.103:6554/api";
 
 const formatTime = date => {
