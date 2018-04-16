@@ -57,7 +57,7 @@
 .card-item-image {
   width: 555rpx; 
   height: 994rpx;
-  border-radius: 10rpx;
+  border-radius: 20rpx;
   border:1rpx solid #eee;
   box-shadow:0rpx 0rpx 10rpx #eee;
 }

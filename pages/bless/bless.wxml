@@ -23,9 +23,7 @@
       </view>
     </view>
   </view>
-  <view>
-    <button  class='send_bless'  bindtap='sendBless' >送祝福</button>
-  </view>
+   <button  class='send_bless'  bindtap='sendBless' >送祝福</button>
 
   <!--弹框  -->
   <view class='modal_mask' style="display:{{visible?'block':'none'}}" >

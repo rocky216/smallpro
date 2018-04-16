@@ -10,7 +10,8 @@ Page({
     detailData: {},
     visible: false,
     password:'',
-    options: {}
+    options: {},
+    ishowSend: false
   },
 
   /**
@@ -26,8 +27,10 @@ Page({
     return bBtn
   },
   onLoad: function (options) {
-    
     var _this = this;
+    if (_this.adjustKey(options, "password")){
+      this.setData({ ishowSend: true})
+    }
     this.getDetailInfo(options, function(){
       if (_this.adjustKey(options, "password")) {
         
@@ -96,7 +99,12 @@ Page({
       if (fn) fn(data);
     })
   },
-
+  sendbless: function(){
+    const { options} = this.data
+    wx.navigateTo({
+      url: '/pages/bless/bless?benison_id=' + options.benison_id + '&template_id=' + options.template_id
+    })
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
